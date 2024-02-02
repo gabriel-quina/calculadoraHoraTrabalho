@@ -6,10 +6,15 @@ use Illuminate\Http\Request as Request;
 
 class CalculadoraController extends Controller
 {
-    public function index(Request $request)
+    public function calcular(Request $request)
     {
-        $horainicial = $request->input('horainicial');
-        $horafinal = $request->input('horafinal');
+
+        $horainicial = $request->entrada;
+        $horafinal = $request->saida;
+
+        echo $horainicial, $horafinal;
+
+        /*
         $result = 0;
 
         if ($horafinal < $horainicial) {
@@ -20,7 +25,6 @@ class CalculadoraController extends Controller
             $result = $horafinal - $horainicial;
             echo $result;
         }
-
-        echo $request;
+        */
     }
 }

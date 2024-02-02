@@ -1,3 +1,9 @@
+<script>
+    import Datepicker from "./components/Datepicker.vue";
+    export default {
+        components: { Datepicker: Datepicker},
+    }
+</script>
 <template>
     <h1>Calculadora de Horas trabalhadas Noturno/Diurno</h1>
 
