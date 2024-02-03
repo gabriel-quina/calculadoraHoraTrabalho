@@ -9,6 +9,10 @@ Para fazer o instalação das dependencias e rodar a Aplicação:
 
 npm install
 composer install
+
+Copiar o arquivo .env.example renomeando para .env
+Alterar APP_URL para http://localhost:8000
+
 php artisan key:generate
 
 npm run dev
