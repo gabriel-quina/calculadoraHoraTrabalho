@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use DateTime;
 use Illuminate\Http\Request as Request;
 
 class CalculadoraController extends Controller
@@ -10,19 +9,17 @@ class CalculadoraController extends Controller
     public function calcular(Request $request)
     {
 
-        $horaEntrada = strtotime($request->entrada);
-        $horaSaida = strtotime($request->saida);
+        $entrada = date_create($request->entrada['hours'].":".$request->entrada['minutes']);
+        $saida = date_create($request->saida['hours'].":".$request->saida['minutes']);
 
-        if ($horaEntrada == $horaSaida) return;
-
-        if ($horaEntrada < $horaSaida OR ($horaEntrada > $horaSaida AND $horaSaida > strtotime('00:00:00'))){
-            $horatrabalhada = $horaSaida - $horaEntrada;
+        if ($saida < $entrada) {
+            $saida = $saida->modify('+1 day');
         }
 
-        $hours = floor($horatrabalhada/ 3600);
-        $minutes = floor(($horatrabalhada / 60) % 60);
+        $resultado = date_diff($entrada,$saida);
 
-        echo $hours, ":", $minutes;
+        $resultado = $resultado->format('%H:%I');
 
+        return $resultado;
     }
 }
