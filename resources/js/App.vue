@@ -5,7 +5,10 @@
     }
 </script>
 <template>
-    <h1>Calculadora de Horas trabalhadas Noturno/Diurno</h1>
+    <h1>
+        Calculadora de Horas Trabalhadas
+        <p>Noturno/Diurno</p>
+    </h1>
 
     <div>
         <Datepicker />
